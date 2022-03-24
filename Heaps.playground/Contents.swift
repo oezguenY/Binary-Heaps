@@ -48,11 +48,13 @@ class MaxBinaryHeap {
         var idx = self.values.count - 1
         let element = self.values[idx]
         while idx > 0 {
+            // formula to get the parentIndex given index of child node (n-1)/2 (floored)
             let parentIdx = Int((idx - 1) / 2)
             let parent = self.values[parentIdx]
+            // no swapping of nodes
             if(element <= parent) {
                 break
-            }
+            } // else, swap childNode with parentNode
             self.values[parentIdx] = element
             self.values[idx] = parent
             idx = parentIdx
